@@ -3,18 +3,59 @@
 
 		var app = _g.app;
 		var http = _g.http;
+		var io = _g.io;
+		var color = _g.color;
+		var count = 0;
+		var name = _g.name;
+
+		function socketEventListener(){
+
+			//io event listener
+			io.on('connection', function(socket){
+			   count = count + 1;
+			   console.log(`${count} users connected`);
+			   socket.on('chat message', function(msg){
+			   	console.log('message: ' + JSON.stringify(msg));
+			    io.emit('chat message', msg);
+			  });
+
+			   socket.on('enter',function(name){
+			   	console.log('entered user : ' + name);
+			   	var enterMsg = `${name}님 접속하셨습니다.`;
+			   	var msg={
+			   		name : "운영자",
+			   		color : "#ffffff",
+			   		msg : enterMsg
+			   	}
+			   	io.emit('chat message', msg);
+			   });
+			});
+
+
+			//end io event listener
+
+		}
 
 		function route(){
+
+			socketEventListener();
+
 			app.get('/',function(req,res){
 				loginCheckRouteHook(()=>{
-					res.render('index.html',{});
+					res.render('index.html',{color:color,name:name});
 				});
 			});
 
 			//1. enetry point
+			/*
 			app.listen(1131,function(){
 			  preLoad();
 			  console.log('KKorona Server listen on *:1131');
+			});*/
+			
+			http.listen(1131, function(){
+				preLoad();
+				console.log('Chat service listen on *:1131');
 			});
 		}
 

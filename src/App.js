@@ -10,6 +10,10 @@
 			var fileStore;
 			var multer;
 			var upload;
+			var http;
+			var io;
+			var color;
+			var name;
 		}
 
 		function loadNodeModules() {
@@ -23,6 +27,13 @@
 			// for file upload
 			_g.multer  = require('multer');
 			_g.upload = _g.multer({ dest: './uploads' });
+
+			_g.http = require('http').createServer(_g.app);
+			_g.io = require('socket.io').listen(_g.http);
+
+			_g.color = require('randomcolor');
+
+			_g.name = require('korean-name-generator');
 		}
 
 		function loadRoute() {

@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>KKorona한국코로나질병센터</title>
+        <title>한국코로나실시간대화서비스</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="for safety korea." name="description" />
         <meta content="HUME" name="author" />
@@ -20,6 +20,17 @@
         <!-- endbuild -->
         <script src="https://kit.fontawesome.com/5490e58072.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cyl93xvkvp"></script>
+        <style>
+           #messages{
+               overflow: scroll;
+               height: 300px;
+               list-style-type: none; margin: 0; padding: 0;
+           } 
+           #messages li { padding: 5px 10px; }
+           .mymsg{
+               text-align: right;
+           }
+        </style>
     </head>
 
     <body>
@@ -39,8 +50,9 @@
                         line-height: 38px;
                         font-size:25px;
                         ">
-                        <i class="fas fa-notes-medical"></i>
-                            한국코로나질병센터
+                        <!--<i class="fas fa-notes-medical"></i>//-->
+                        <img src='/assets/img/virus.png' width=40>
+                            한국코로나챗
                         </div>
                         <!--
                         <button class="button-menu-mobile open-left disable-btn">
@@ -76,13 +88,14 @@
                                         <div class="card widget-flat">
                                             <div class="card-body">
                                                 <div class="float-right">
-                                                    <i class="mdi mdi-account-multiple widget-icon"></i>
+                                                    <!--<i class="mdi mdi-account-multiple widget-icon"></i>//-->
+                                                    <img src='/assets/img/flag.png'>
                                                 </div>
                                                 <h5 class="text-muted font-weight-normal mt-0" title="Number of Customers">대한민국</h5>
-                                                <h3 class="mt-3 mb-3">36,254</h3>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 12명</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-success mr-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                                    <span class="text-nowrap">Since last month</span>  
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 유증상자 371명</span>
+                                                    <span class="text-nowrap">1월 12일 몇시 몇분 마지막 감염자</span>  
                                                 </p>
                                             </div> <!-- end card-body-->
                                         </div> <!-- end card-->
@@ -92,48 +105,110 @@
                                         <div class="card widget-flat">
                                             <div class="card-body">
                                                 <div class="float-right">
-                                                    <i class="mdi mdi-cart-plus widget-icon"></i>
+                                                    <!--<i class="mdi mdi-cart-plus widget-icon"></i>//-->
+                                                    <img src='/assets/img/world.png'>
                                                 </div>
-                                                <h5 class="text-muted font-weight-normal mt-0" title="Number of Orders">전세계</h5>
-                                                <h3 class="mt-3 mb-3">5,543</h3>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="Number of Orders">전 세계</h5>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 11,952</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i> 1.08%</span>
-                                                    <span class="text-nowrap">Since last month</span>
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i> 사망자 259명, 치사율 2.17%</span>
+                                                    <span class="text-nowrap">1월 12일 몇시 몇분 마지막 사망자</span>
                                                 </p>
                                             </div> <!-- end card-body-->
                                         </div> <!-- end card-->
                                     </div> <!-- end col-->
                                 </div> <!-- end row -->
 
+
+                                <div class="row">
+                                    <div class="card col-lg-12">
+                                        <div class="card-body">
+                                            <h4 class="header-title mb-2">확진자 동선</h4>
+    
+                                            <div class="slimscroll" style="max-height: 171px;">
+                                                <div class="timeline-alt pb-0">
+                                                    <div class="timeline-item">
+                                                        <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
+                                                        <div class="timeline-item-info">
+                                                            <a href="#" class="text-info font-weight-bold mb-1 d-block">1번째 감염자 | 중국(여,35)</a>
+                                                            <small>(1월 19일) 중국 후베이성 우한시에 거주하는 중국 국적 여성으로 춘제를 맞이해 한국과 일본을 여행하기 위해 19일 인천으로 입국. 인천공항에서 격리</small>
+                                                            <p>
+                                                                <small class="text-muted">1월 20일(감염차수 : 1차)</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="timeline-item">
+                                                        <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
+                                                        <div class="timeline-item-info">
+                                                            <a href="#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>
+                                                            <small>Dave Gamache added
+                                                                <span class="font-weight-bold">Admin Dashboard</span>
+                                                            </small>
+                                                            <p>
+                                                                <small class="text-muted">30 minutes ago</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="timeline-item">
+                                                        <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
+                                                        <div class="timeline-item-info">
+                                                            <a href="#" class="text-info font-weight-bold mb-1 d-block">Robert Delaney</a>
+                                                            <small>Send you message
+                                                                <span class="font-weight-bold">"Are you there?"</span>
+                                                            </small>
+                                                            <p>
+                                                                <small class="text-muted">2 hours ago</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="timeline-item">
+                                                        <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>
+                                                        <div class="timeline-item-info">
+                                                            <a href="#" class="text-primary font-weight-bold mb-1 d-block">Audrey Tobey</a>
+                                                            <small>Uploaded a photo
+                                                                <span class="font-weight-bold">"Error.jpg"</span>
+                                                            </small>
+                                                            <p>
+                                                                <small class="text-muted">14 hours ago</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end timeline -->
+                                            </div> <!-- end slimscroll -->
+                                        </div>
+                                        <!-- end card-body -->
+                                    </div>
+                                    <!-- end card-->
+                                </div>
+
                             </div> <!-- end col -->
 
                             <div class="col-xl-7">
-                                <div class="card">
+                                <div class="card bg-primary">
                                     <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <h6 class="text-white"><i class="mdi mdi-cellphone-android"></i>증상 발생 시 관할보건소 또는 1399 상담하기!</h6>
+                                        <h4 class="header-title text-white mb-4">코로나 실시간 현상황 가명대화</h4>
+                                        
+                                        <ul id="messages"></ul>
+                                        
+                                            <div class="input-group">
+                                                <input class="form-control" id="m" autocomplete="off"
+                                                placeholder="마스크 꼭 착용하세요!"
+                                                /><button class="btn btn-warning" id=chat-send>
+                                                    <i class="mdi mdi-clover" style="font-size:20px;"></i>
+                                                </button>
+
                                             </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">이건 어따쓸까나 넣을 내용이없네</h4>
-
-                                        <div style="height: 262px;" class="chartjs-chart">
-                                            <canvas id="high-performing-product"></canvas>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-
-                            </div> <!-- end col -->
+                                        
+                                        
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                            </div>
+                            <!-- end col -->
                         </div>
                         <!-- end row -->
 
@@ -156,11 +231,8 @@
                                                 <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                             </div>
                                         </div>
-                                        <h4 class="header-title mb-3">여기자리에다가 네이버 지도랑 채팅넣어부려야지</h4>
-
-                                       ㅁㄴㅇㄹ
-
-                                       <div id="map" style="width:100%;height:400px;"></div>
+                                        <h4 class="header-title mb-3">신종 코로나 바이러스 대한민국 확진자 위치</h4>
+                                       <div id="map" style="width:100%;height:600px;"></div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
@@ -168,55 +240,82 @@
                             <div class="col-xl-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">이건 뭐 세계지도 대충 수동으로 위치 때려박고 </h4>
+                                       
+                                        <h4 class="header-title">신종 코로나 바이러스 국가별 현황</h4>
                                         <div class="mb-4 mt-4">
                                             <div id="world-map-markers" style="height: 224px"></div>
                                         </div>
 
-                                        <h5 class="mb-1 mt-0 font-weight-normal">New York</h5>
+                                        <h5 class="mb-1 mt-0 font-weight-normal">중국</h5>
+                                        <span class="progress-value font-weight-bold">11,791명(사망자 259명) </span>
                                         <div class="progress-w-percent">
-                                            <span class="progress-value font-weight-bold">72k </span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
-                                        <h5 class="mb-1 mt-0 font-weight-normal">San Francisco</h5>
+                                        <h5 class="mb-1 mt-0 font-weight-normal">태국</h5>
+                                        <span class="progress-value font-weight-bold">19명 </span>
                                         <div class="progress-w-percent">
-                                            <span class="progress-value font-weight-bold">39k </span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 19%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
-                                        <h5 class="mb-1 mt-0 font-weight-normal">Sydney</h5>
+                                        <h5 class="mb-1 mt-0 font-weight-normal">싱가폴</h5>
+                                        <span class="progress-value font-weight-bold">18명 </span>
                                         <div class="progress-w-percent">
-                                            <span class="progress-value font-weight-bold">25k </span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 18%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
-                                        <h5 class="mb-1 mt-0 font-weight-normal">Singapore</h5>
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
                                         <div class="progress-w-percent mb-0">
-                                            <span class="progress-value font-weight-bold">61k </span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
+                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div> <!-- end card-body-->
@@ -227,108 +326,64 @@
 
 
                         <div class="row">
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="" class="btn btn-sm btn-link float-right mb-3">Export
-                                            <i class="mdi mdi-download ml-1"></i>
+                                        <a target="_blank" href="https://search.naver.com/search.naver?query=%EC%BD%94%EB%A1%9C%EB%82%98&where=news&ie=utf8&sm=nws_hty" class="btn btn-sm btn-link float-right mb-3">네이버검색
+                                            <i class="mdi mdi-search-web ml-1" style="font-size: 30px;"></i>
                                         </a>
-                                        <h4 class="header-title mt-2">여기다가는 뉴스</h4>
+                                        <h4 class="header-title mt-2">신종 코로나 바이러스 실시간 뉴스</h4>
 
                                         <div class="table-responsive">
                                             <table class="table table-centered table-hover mb-0">
                                                 <tbody>
-                                                    <tr>
+                                                    <tr onclick="javascript:location.href='https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=023&aid=0003504621';">
                                                         <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">ASOS Ridley High Waist</h5>
-                                                            <span class="text-muted font-13">07 April 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$79.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">82</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$6,518.18</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            </h5>
+                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">Marco Lightweight Shirt</h5>
-                                                            <span class="text-muted font-13">25 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$128.50</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">37</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$4,754.50</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            </h5>
+                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">Half Sleeve Shirt</h5>
-                                                            <span class="text-muted font-13">17 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$39.99</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">64</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$2,559.36</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            </h5>
+                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">Lightweight Jacket</h5>
-                                                            <span class="text-muted font-13">12 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$20.00</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">184</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$3,680.00</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            </h5>
+                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">Marco Shoes</h5>
-                                                            <span class="text-muted font-13">05 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$28.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">69</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">$1,965.81</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            </h5>
+                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
-
+                                                  
+                                                  
                                                 </tbody>
                                             </table>
                                         </div> <!-- end table-responsive-->
@@ -336,164 +391,7 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
 
-                            <div class="col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">이것도 빼버리고 </h4>
-
-                                        <div class="mb-5 mt-4 chartjs-chart" style="height: 201px; max-width: 180px;">
-                                            <canvas id="average-sales"></canvas>
-                                        </div>
-
-                                        <div class="chart-widget-list">
-                                            <p>
-                                                <i class="mdi mdi-square text-primary"></i> Direct
-                                                <span class="float-right">$300.56</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-danger"></i> Affilliate
-                                                <span class="float-right">$135.18</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-success"></i> Sponsored
-                                                <span class="float-right">$48.96</span>
-                                            </p>
-                                            <p class="mb-0">
-                                                <i class="mdi mdi-square"></i> E-mail
-                                                <span class="float-right">$154.02</span>
-                                            </p>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-3">
-                                <div class="card bg-primary">
-                                    <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle text-white arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title text-white mb-4">이건또뭐여</h4>
-                                        <div class="text-center">
-                                            <p class="mt-4 mb-2">
-                                                <span class="badge badge-danger">-23.47 %</span>
-                                            </p>
-                                            <h3 class="font-weight-normal text-white mb-2">$154.21</h3>
-                                            <p class="text-light text-uppercase font-13 font-weight-bold">Per Sale</p>
-                                            <a href="javascript: void(0);" class="btn btn-outline-light btn-sm mb-1">More
-                                                <i class="mdi mdi-arrow-right ml-1"></i>
-                                            </a>
-
-                                        </div> <!-- end card-body-->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col-->
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-2">감영 경로 이런걸 이렇게 표시해주는것도 예쁘겠네</h4>
-
-                                        <div class="slimscroll" style="max-height: 171px;">
-                                            <div class="timeline-alt pb-0">
-                                                <div class="timeline-item">
-                                                    <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                                                    <div class="timeline-item-info">
-                                                        <a href="#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>
-                                                        <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                                        <p>
-                                                            <small class="text-muted">5 minutes ago</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                    <div class="timeline-item-info">
-                                                        <a href="#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                                        <small>Dave Gamache added
-                                                            <span class="font-weight-bold">Admin Dashboard</span>
-                                                        </small>
-                                                        <p>
-                                                            <small class="text-muted">30 minutes ago</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
-                                                    <div class="timeline-item-info">
-                                                        <a href="#" class="text-info font-weight-bold mb-1 d-block">Robert Delaney</a>
-                                                        <small>Send you message
-                                                            <span class="font-weight-bold">"Are you there?"</span>
-                                                        </small>
-                                                        <p>
-                                                            <small class="text-muted">2 hours ago</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>
-                                                    <div class="timeline-item-info">
-                                                        <a href="#" class="text-primary font-weight-bold mb-1 d-block">Audrey Tobey</a>
-                                                        <small>Uploaded a photo
-                                                            <span class="font-weight-bold">"Error.jpg"</span>
-                                                        </small>
-                                                        <p>
-                                                            <small class="text-muted">14 hours ago</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end timeline -->
-                                        </div> <!-- end slimscroll -->
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col -->
+                        
 
                         </div>
                         <!-- end row -->
@@ -509,7 +407,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                2020 ©HUME with developer 오수진
+                                2020 ©<a href='http://hume.co.kr'>HUME</a> with developer 오수진
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right footer-links d-none d-sm-block">
@@ -533,124 +431,6 @@
         </div>
         <!-- END wrapper -->
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-
-            <div class="rightbar-title">
-                <a href="javascript:void(0);" class="right-bar-toggle float-right">
-                    <i class="dripicons-cross noti-icon"></i>
-                </a>
-                <h5 class="m-0">Settings</h5>
-            </div>
-
-            <div class="slimscroll-menu">
-
-                <!-- Settings -->
-                <hr class="mt-0" />
-                <h5 class="pl-3">Basic Settings</h5>
-                <hr class="mb-0" />
-
-                <div class="p-3">
-                    <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="notifications-check" checked>
-                        <label class="custom-control-label" for="notifications-check">Notifications</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="api-access-check">
-                        <label class="custom-control-label" for="api-access-check">API Access</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="auto-updates-check" checked>
-                        <label class="custom-control-label" for="auto-updates-check">Auto Updates</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="online-status-check" checked>
-                        <label class="custom-control-label" for="online-status-check">Online Status</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="auto-payout-check">
-                        <label class="custom-control-label" for="auto-payout-check">Auto Payout</label>
-                    </div>
-
-                </div>
-
-
-                <!-- Timeline -->
-                <hr class="mt-0" />
-                <h5 class="pl-3">Recent Activity</h5>
-                <hr class="mb-0" />
-                <div class="pl-2 pr-2">
-                    <div class="timeline-alt">
-                        <div class="timeline-item">
-                            <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                            <div class="timeline-item-info">
-                                <a href="#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>
-                                <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                <p>
-                                    <small class="text-muted">5 minutes ago</small>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                            <div class="timeline-item-info">
-                                <a href="#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                <small>Dave Gamache added
-                                    <span class="font-weight-bold">Admin Dashboard</span>
-                                </small>
-                                <p>
-                                    <small class="text-muted">30 minutes ago</small>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
-                            <div class="timeline-item-info">
-                                <a href="#" class="text-info font-weight-bold mb-1 d-block">Robert Delaney</a>
-                                <small>Send you message
-                                    <span class="font-weight-bold">"Are you there?"</span>
-                                </small>
-                                <p>
-                                    <small class="text-muted">2 hours ago</small>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>
-                            <div class="timeline-item-info">
-                                <a href="#" class="text-primary font-weight-bold mb-1 d-block">Audrey Tobey</a>
-                                <small>Uploaded a photo
-                                    <span class="font-weight-bold">"Error.jpg"</span>
-                                </small>
-                                <p>
-                                    <small class="text-muted">14 hours ago</small>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                            <div class="timeline-item-info">
-                                <a href="#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>
-                                <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                <p>
-                                    <small class="text-muted">1 day ago</small>
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Right-bar -->
 
         <!-- bundle -->
         <script src="assets/js/app.min.js"></script>
@@ -665,6 +445,58 @@
         <script src="assets/js/pages/demo.dashboard.js"></script>
         <!-- end demo js-->
 
+
+        <!--random color and name init-->
+        <script>
+            var myColor = "<%=color({luminosity: 'bright'})%>";
+            var myName = "<%=name.generate(false)%>";
+        </script>
+        <!--end random color and name init-->
+
+        <!-- socket script-->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+
+            
+
+            $(function () {
+                var socket = io();
+                socket.emit('enter',myName);
+
+                function sendmsg(){
+                    var msg = {
+                            name : myName,
+                            color : myColor,
+                            msg : $('#m').val()
+                        }
+                    socket.emit('chat message', msg);
+                    $('#m').val('');
+                }
+            
+                $('#m').keydown((key)=>{
+                    if(key.keyCode==13){
+                        sendmsg();
+                    }
+                });
+
+                $('#chat-send').click(function(e){
+                    e.preventDefault(); // prevents page reloading
+                    sendmsg();    
+                    return false;
+                });
+                socket.on('chat message', function(msg){
+                  if(msg.name === myName){
+                    $('#messages').append($('<li class="mymsg" style=\"color:'+msg.color+'\">').text("[나]"+msg.name+":"+msg.msg));
+                  } else {
+                    $('#messages').append($('<li style=\'color:'+msg.color+'\'>').text("▶"+msg.name+":"+msg.msg));
+                  }
+                  
+                  $('#messages').scrollTop($('#messages').height());
+                });
+            });
+        </script>
+        <!-- end socket script-->
+
         <!-- naver map api-->
         <script>
             var mapOptions = {
@@ -675,6 +507,8 @@
             var map = new naver.maps.Map('map', mapOptions);
         </script>
         <!-- end naver map api -->
+
+        
     </body>
 
 </html>
