@@ -47,6 +47,11 @@
 				});
 			});
 
+
+			app.get('/naver369600b9522b96cb0b63b2bc39396558.html',function(req,res){
+				res.render('naver369600b9522b96cb0b63b2bc39396558.html',{});
+			});
+
 			//1. enetry point
 			/*
 			app.listen(1131,function(){
