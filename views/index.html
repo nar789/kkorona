@@ -46,6 +46,26 @@
     </head>
 
     <body>
+        <div style="display:none;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target1" id=target1Btn>
+                확진자1테스트
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target2" id=target2Btn>
+                확진자2테스트
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target3" id=target3Btn>
+                확진자3테스트
+            </button>
+        </div>
+        <!--modal wrap-->
+        
+        <%- include("./target1.html") %>
+        <%- include("./target2.html") %>
+        <%- include("./target3.html") %>
+        
+        <!--end modal wrap-->
 
         <!-- Begin page -->
         <div class="wrapper">
@@ -496,6 +516,10 @@
 
         <!-- naver map api-->
         <script>
+
+            function targetBtnClickListener(idx){
+                $('#target'+idx+'Btn').click();
+            }
             
             var virusinfo = [];
 
@@ -505,13 +529,11 @@
                     pos : new naver.maps.LatLng(37.3613962, 127.1112487),
                     title : "1번째 감염자/중국(여,35)",
                     content : "(1월 19일) 중국 후베이성 우한시에 거주하는 중국 국적 여성으로 춘제를 맞이해 한국과 일본을 여행하기 위해 19일 인천으로 입국. 인천공항에서 격리",
-                    link : "http://www.seoul.go.kr" //관련 뉴스가 있다면
                 },
                 {
                     pos : new naver.maps.LatLng(37.2621657,127.0372229),
                     title : "2번째 삼성이/한국(남,28)",
                     content : "(2월 1일) 삼성전자에서...",
-                    link : "http://www.samsung.com" //관련 뉴스가 있다면
                 }
             );
             /////////////////아래는 최대한 손대지 않아두됨.
@@ -552,7 +574,7 @@
                     '<div class="iw_inner">',
                     '   <h5>'+virusinfo[i].title+'</h5>',
                     '   <p>'+virusinfo[i].content+'<br>',
-                    '       <a href="'+virusinfo[i].link+'" target="_blank">기사보기</a>',
+                    '       <p style="color:#DE3163;font-weight:bold;" onclick = \"targetBtnClickListener('+idx+')\">동선확인하기</p>',
                     '   </p>',
                     '</div>'
                 ].join(''),
