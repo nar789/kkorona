@@ -14,6 +14,7 @@
 			var io;
 			var color;
 			var name;
+			var dateformat;
 		}
 
 		function loadNodeModules() {
@@ -34,6 +35,9 @@
 			_g.color = require('randomcolor');
 
 			_g.name = require('korean-name-generator');
+
+			_g.dateformat =  require('dateformat');
+
 		}
 
 		function loadRoute() {

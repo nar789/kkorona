@@ -7,20 +7,21 @@
 		var color = _g.color;
 		var count = 0;
 		var name = _g.name;
+		var dateformat = _g.dateformat;
 
 		function socketEventListener(){
 
 			//io event listener
 			io.on('connection', function(socket){
 			   count = count + 1;
-			   console.log(`${count} users connected`);
+			   console.log(`${count} users connected [${dateformat()}]`);
 			   socket.on('chat message', function(msg){
-			   	console.log('message: ' + JSON.stringify(msg));
-			    io.emit('chat message', msg);
+			   console.log(dateformat() + ', message = ' + JSON.stringify(msg));
+			   io.emit('chat message', msg);
 			  });
 
 			   socket.on('enter',function(name){
-			   	console.log('entered user : ' + name);
+			   	console.log(dateformat() + ', entered user : ' + name);
 			   	var enterMsg = `${name}님 접속하셨습니다.`;
 			   	var msg={
 			   		name : "운영자",
@@ -85,7 +86,7 @@
 		}
 
 		function preLoad(){
-			//to-do
+			console.log(dateformat());
 		}
 
 		var publicReturn = {
