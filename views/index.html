@@ -30,6 +30,18 @@
            .mymsg{
                text-align: right;
            }
+
+           .pin{
+               width:30px;
+               height: 30px;
+               border-radius: 30px;
+               line-height: 30px;
+               text-align: center;
+               font-weight: bold;
+               background-color:#DE3163;
+               color: white;
+               
+           }
         </style>
     </head>
 
@@ -188,7 +200,7 @@
                             </div> <!-- end col -->
 
                             <div class="col-xl-7">
-                                <div class="card bg-primary">
+                                <div class="card bg-dark">
                                     <div class="card-body">
                                         <h6 class="text-white"><i class="mdi mdi-cellphone-android"></i>증상 발생 시 관할보건소 또는 1399 상담하기!</h6>
                                         <h4 class="header-title text-white mb-4">코로나 실시간 현상황 가명대화</h4>
@@ -216,21 +228,6 @@
                             <div class="col-xl-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="dropdown float-right">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
                                         <h4 class="header-title mb-3">신종 코로나 바이러스 대한민국 확진자 위치</h4>
                                        <div id="map" style="width:100%;height:600px;"></div>
                                     </div> <!-- end card-body-->
@@ -499,16 +496,86 @@
 
         <!-- naver map api-->
         <script>
+            
+            var virusinfo = [];
+
+            //요련 형식으로 추가하면됨
+            virusinfo.push(
+                {
+                    pos : new naver.maps.LatLng(37.3613962, 127.1112487),
+                    title : "1번째 감염자/중국(여,35)",
+                    content : "(1월 19일) 중국 후베이성 우한시에 거주하는 중국 국적 여성으로 춘제를 맞이해 한국과 일본을 여행하기 위해 19일 인천으로 입국. 인천공항에서 격리",
+                    link : "http://www.seoul.go.kr" //관련 뉴스가 있다면
+                },
+                {
+                    pos : new naver.maps.LatLng(37.2621657,127.0372229),
+                    title : "2번째 삼성이/한국(남,28)",
+                    content : "(2월 1일) 삼성전자에서...",
+                    link : "http://www.samsung.com" //관련 뉴스가 있다면
+                }
+            );
+            /////////////////아래는 최대한 손대지 않아두됨.
+
             var mapOptions = {
                 center: new naver.maps.LatLng(37.3595704, 127.105399),
                 zoom: 3,
+                zoomContorl:true,
                 zoomControlOptions: {
                     position: naver.maps.Position.TOP_LEFT,
                     style: naver.maps.ZoomControlStyle.SMALL
                 }
             };
-            
             var map = new naver.maps.Map('map', mapOptions);
+
+            var virusMarkers = [];
+            var infowindows = {};
+            for(var i=0;i<virusinfo.length;i++){
+                var idx = i+1;
+                
+                virusMarkers.push(new naver.maps.Marker({
+                    position: virusinfo[i].pos,
+                    map: map,
+                    title: 'virus'+idx,
+                    icon: {
+                        content: [
+                                    '<div class="pin">',
+                                        ''+idx,
+                                    '</div>'
+                                ].join(''),
+                        
+                    },
+                    draggable: false
+                }));        
+
+                infowindows['virus'+idx]=new naver.maps.InfoWindow({
+                    content: [
+                    '<div class="iw_inner">',
+                    '   <h5>'+virusinfo[i].title+'</h5>',
+                    '   <p>'+virusinfo[i].content+'<br>',
+                    '       <a href="'+virusinfo[i].link+'" target="_blank">기사보기</a>',
+                    '   </p>',
+                    '</div>'
+                ].join(''),
+                    maxWidth: 140,
+                    backgroundColor: "#eee",
+                    borderColor: "#2db400",
+                    borderWidth: 5,
+                    anchorSize: new naver.maps.Size(30, 30),
+                    anchorSkew: true,
+                    anchorColor: "#eee",
+                    pixelOffset: new naver.maps.Point(20, -20)
+                });
+                
+                naver.maps.Event.addListener(virusMarkers[i], "click", function(e) {
+                        var title = e.overlay.title;
+                        var infowindow = infowindows[title];
+                        if (infowindow.getMap()) {
+                            infowindow.close();
+                        } else {
+                            infowindow.open(map, e.overlay);
+                        }
+                });
+            }
         </script>
         <!-- end naver map api -->
 
