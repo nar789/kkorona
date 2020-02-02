@@ -47,23 +47,39 @@
 
     <body>
         <div style="display:none;">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target1" id=target1Btn>
-                확진자1테스트
-            </button>
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target2" id=target2Btn>
-                확진자2테스트
-            </button>
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target3" id=target3Btn>
-                확진자3테스트
-            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target1" id=target1Btn>확진자1테스트</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target2" id=target2Btn>확진자2테스트</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target3" id=target3Btn>확진자3테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target4" id=target4Btn>확진자4테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target5" id=target5Btn>확진자5테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target6" id=target6Btn>확진자6테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target7" id=target7Btn>확진자7테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target8" id=target8Btn>확진자8테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target9" id=target9Btn>확진자9테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target10" id=target10Btn>확진자10테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target11" id=target11Btn>확진자11테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target12" id=target12Btn>확진자12테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target13" id=target13Btn>확진자13테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target14" id=target14Btn>확진자14테스트</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target15" id=target15Btn>확진자15테스트</button>
         </div>
         <!--modal wrap-->
         
         <%- include("./target1.html") %>
         <%- include("./target2.html") %>
         <%- include("./target3.html") %>
+        <%- include("./target4.html") %>
+        <%- include("./target5.html") %>
+        <%- include("./target6.html") %>
+        <%- include("./target7.html") %>
+        <%- include("./target8.html") %>
+        <%- include("./target9.html") %>
+        <%- include("./target10.html") %>
+        <%- include("./target11.html") %>
+        <%- include("./target12.html") %>
+        <%- include("./target13.html") %>
+        <%- include("./target14.html") %>
+        <%- include("./target15.html") %>
         
         <!--end modal wrap-->
 
@@ -124,9 +140,9 @@
                                                     <img src='/assets/img/flag.png'>
                                                 </div>
                                                 <h5 class="text-muted font-weight-normal mt-0" title="Number of Customers">대한민국</h5>
-                                                <h3 class="mt-3 mb-3">감염자(확진) 12명</h3>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 15명</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 유증상자 371명</span>
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 유증상자 414명</span>
                                                     <span class="text-nowrap">1월 12일 몇시 몇분 마지막 감염자</span>  
                                                 </p>
                                             </div> <!-- end card-body-->
@@ -141,9 +157,9 @@
                                                     <img src='/assets/img/world.png'>
                                                 </div>
                                                 <h5 class="text-muted font-weight-normal mt-0" title="Number of Orders">전 세계</h5>
-                                                <h3 class="mt-3 mb-3">감염자(확진) 11,952</h3>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 14,528</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i> 사망자 259명, 치사율 2.17%</span>
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-down-bold"></i> 사망자 304명, 치사율 2.17%</span>
                                                     <span class="text-nowrap">1월 12일 몇시 몇분 마지막 사망자</span>
                                                 </p>
                                             </div> <!-- end card-body-->
@@ -526,12 +542,12 @@
             //요련 형식으로 추가하면됨
             virusinfo.push(
                 {
-                    pos : new naver.maps.LatLng(37.4785259,126.6663152),
+                    pos : new naver.maps.LatLng(37.478824,126.668440),
                     title : "환자#1/중국(여,35)/인천의료원",
                     content : "(1월 19일) 중국 후베이성 우한시에 거주하는 중국 국적 여성으로 춘제를 맞이해 한국과 일본을 여행하기 위해 19일 인천으로 입국. 인천공항에서 격리",
                 },
                 {
-                    pos : new naver.maps.LatLng(37.5672412,127.0034702),
+                    pos : new naver.maps.LatLng(37.567471,127.005562),
                     title : "환자#2/한국(남,55)/국립중앙의료원",
                     content : "(1월 22일) 저녁 김포공항을 통해 귀국(우한 출발 상하이 경유)하던 중 검역 과정에서 발열과 인후통이 확인되어 능동감시를 실시하였으며,<br> (1월 23일) 보건소 선별진료를 통해 검사를 실시한 결과 신종 코로나바이러스로 확진되었다.",
                 },
@@ -541,7 +557,7 @@
                     content : "(1월 20일) 중국 후베이성 우한시에서 거주하다가 1월 20일 일시 귀국(무증상 입국자)",
                 },
                 {
-                    pos :new naver.maps.LatLng(37.3513241,127.1212433),
+                    pos :new naver.maps.LatLng(37.351467, 127.123431),
                     title: "환자#4/한국(남,55)/분당서울대병원",
                     content:"해당 환자는 중국 후베이성 우한시에 방문하였다가 (1월 20일) 귀국하였고<br>(1월 21일) 감기 증세로 국내 의료기관에  내원하여 진료 받았다고 한다.",
                 },
@@ -581,22 +597,22 @@
                     content:"10번째 확진자(52세 여자, 한국인)와 11번째 확진자(25세 남자, 한국인)는 6번째 확진자의 가족으로 (1월 31일) 확진되었다. 10번째 확진자는 (1월 29일) 두통 증상이 발생하였으며, 11번째 확진자는 (1월 30일) 몸살 기운이 발생하였다고 하였다.",
                 },
                 {
-                    pos :new naver.maps.LatLng(37.3513241,127.1212433),
+                    pos :new naver.maps.LatLng(37.351467, 127.123531),
                     title: "환자#12/중국(남,48)/분당서울대병원",
                     content:"(1월 20일) 택시로 이동하여 15시경 서울시 중구 소재 음식점 방문, 택시 이용하여 서울시 중구 소재 남대문 쇼핑, 경기도 부천시 소재 극장(CGV 부천역점)에서 영화 관람(8층 5관, 19:20 백두산, 좌석번호 E5~6)<br>(※ 일본 확진자의 접촉자)",
                 },
                 {
-                    pos :new naver.maps.LatLng(37.5672412,127.0035702),
+                    pos :new naver.maps.LatLng(37.567471,127.005662),
                     title: "환자#13/한국(남,28)/국립중앙의료원",
                     content:"(1월 31일) 임시항공편으로 1차 귀국한 입국 교민 368명 중 1명이며, 1차 입국교민 전수 진단검사 과정에서 확인, 국립중앙의료원에 격리조치 되었다. ",
                 },
                 {
-                    pos :new naver.maps.LatLng(37.3513241,127.1213433),
+                    pos :new naver.maps.LatLng(37.351467, 127.123631),
                     title: "환자#14/중국(여,40)/분당서울대병원",
                     content:"12번째 환자의 가족으로 자가격리 중이었으며, 현재 역학조사가 진행중이다",
                 },
                 {
-                    pos :new naver.maps.LatLng(37.3920127,127.1476998),
+                    pos :new naver.maps.LatLng(37.392964,127.194094),
                     title: "환자#15/한국(남,43)/국군수도병원",
                     content:"(1월 20일) 우한시에서 입국하였으며, 당시 4번째 환자와 같은 비행기를 탑승하여  관리중이던 대상자<br>(2월 1일)부터 호흡기 증상을 호소해 실시한 검사 결과 확진되었다.",
                 }
