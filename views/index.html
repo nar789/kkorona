@@ -78,7 +78,8 @@
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target12" id=target12Btn>확진자12테스트</button>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target13" id=target13Btn>확진자13테스트</button>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target14" id=target14Btn>확진자14테스트</button>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target15" id=target15Btn>확진자15테스트</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target15" id=target15Btn>확진자15테스트</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#target16" id=target16Btn>확진자15테스트</button>
         </div>
         <!--modal wrap-->
         
@@ -97,6 +98,7 @@
         <%- include("./target13.html") %>
         <%- include("./target14.html") %>
         <%- include("./target15.html") %>
+        <%- include("./target16.html") %>
         
         <!--end modal wrap-->
 
@@ -158,9 +160,9 @@
                                                     <img src='/assets/img/flag.png'>
                                                 </div>
                                                 <h5 class="text-muted font-weight-normal mt-0" title="Number of Customers">대한민국</h5>
-                                                <h3 class="mt-3 mb-3">감염자(확진) 15명</h3>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 16명</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 유증상자 414명</span>
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 유증상자 591명</span>
                                                     <span class="text-nowrap">Last updated on 02-02</span>  
                                                 </p>
                                             </div> <!-- end card-body-->
@@ -175,9 +177,9 @@
                                                     <img src='/assets/img/world.png'>
                                                 </div>
                                                 <h5 class="text-muted font-weight-normal mt-0" title="Number of Orders">전 세계</h5>
-                                                <h3 class="mt-3 mb-3">감염자(확진) 14,528</h3>
+                                                <h3 class="mt-3 mb-3">감염자(확진) 20,718</h3>
                                                 <p class="mb-0 text-muted">
-                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 사망자 304명, 치사율 2.17%</span>
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> 사망자 427명, 치사율 2.06%</span>
                                                     <span class="text-nowrap">Last updated on 02-02</span>
                                                 </p>
                                             </div> <!-- end card-body-->
@@ -372,6 +374,21 @@
                                                             </p>
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="timeline-item">
+                                                        <!--<i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>//-->
+                                                        <i class="mdi bg-info-lighten text-info timeline-icon"></i>
+                                                        <div class="timeline-item-info">
+                                                            <a href="#" class="text-info font-weight-bold mb-1 d-block">환자#16/한국(여,42)/전남대병원(확인중)</a>
+                                                            <small>(1월 19일) 태국 여행 후 1월 19일 입국<br>(1월 25일) 저녁부터 오한 등 증상이 있어, 2월 2일까지 치료받았으나 증상이 호전되지 않아,<br>
+                                                                (2월 3일) 전남대학교 병원 내원, 신종 코로나바이러스 감염 배제를 위해 격리조치 후 광주 보건환경연구원에 의뢰해 실시한 검사 결과 2월 4일 오전 양성으로 확인되었다.<br>
+                                                                현재 역학조사 및 방역조치가 진행 중으로, 추가 정보가 확인되는 대로 공개할 예정이다.</small>
+                                                            <p>
+                                                                <small class="text-muted">1월 20일</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
     
                                                   
                                                 </div>
@@ -448,61 +465,69 @@
                                         </div>
 
                                         <h5 class="mb-1 mt-0 font-weight-normal">중국</h5>
-                                        <span class="progress-value font-weight-bold">14,380명(사망자 304명) </span>
+                                        <span class="progress-value font-weight-bold">20,505명(사망자 425명) </span>
                                         <div class="progress-w-percent">
                                             <div class="progress progress-sm">
                                                 <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
-                                        <h5 class="mb-1 mt-0 font-weight-normal">일본</h5>
-                                        <span class="progress-value font-weight-bold">20명 </span>
+                                        <h5 class="mb-1 mt-0 font-weight-normal">태국</h5>
+                                        <span class="progress-value font-weight-bold">25명 </span>
                                         <div class="progress-w-percent mb-0">
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 font-weight-normal">태국</h5>
-                                        <span class="progress-value font-weight-bold">19명 </span>
-                                        <div class="progress-w-percent">
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 19%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <h5 class="mb-1 mt-0 font-weight-normal">싱가폴</h5>
-                                        <span class="progress-value font-weight-bold">18명 </span>
+                                        <span class="progress-value font-weight-bold">24명 </span>
                                         <div class="progress-w-percent">
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 18%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 24%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">홍콩</h5>
+                                        <span class="progress-value font-weight-bold">17명 </span>
+                                        <div class="progress-w-percent">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 17%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         
 
                                         <h5 class="mb-1 mt-0 font-weight-normal">한국</h5>
-                                        <span class="progress-value font-weight-bold">15명 </span>
+                                        <span class="progress-value font-weight-bold">16명 </span>
                                         <div class="progress-w-percent mb-0">
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 16%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
-
-                                        <h5 class="mb-1 mt-0 font-weight-normal">홍콩</h5>
-                                        <span class="progress-value font-weight-bold">14명 </span>
-                                        <div class="progress-w-percent mb-0">
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 14%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
 
                                         <h5 class="mb-1 mt-0 font-weight-normal">호주</h5>
+                                        <span class="progress-value font-weight-bold">13명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 13%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">독일</h5>
                                         <span class="progress-value font-weight-bold">12명 </span>
                                         <div class="progress-w-percent mb-0">
                                             <div class="progress progress-sm">
                                                 <div class="progress-bar" role="progressbar" style="width: 12%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="mb-1 mt-0 font-weight-normal">미국</h5>
+                                        <span class="progress-value font-weight-bold">11명 </span>
+                                        <div class="progress-w-percent mb-0">
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" role="progressbar" style="width: 11%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
@@ -511,14 +536,6 @@
                                         <div class="progress-w-percent mb-0">
                                             <div class="progress progress-sm">
                                                 <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 font-weight-normal">말레이시아</h5>
-                                        <span class="progress-value font-weight-bold">8명 </span>
-                                        <div class="progress-w-percent mb-0">
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 8%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div> <!-- end card-body-->
@@ -540,22 +557,22 @@
                                         <div class="table-responsive">
                                             <table class="table table-centered table-hover mb-0">
                                                 <tbody>
-                                                    <tr onclick="window.open('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=023&aid=0003504621')">
+                                                    <tr onclick="window.open('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=448&aid=0000291383')">
                                                         <td>
-                                                            <h3 class="mb-1 font-weight-normal">[단독] 신종 코로나 12번째 확진자 다녀간 CGV 부천역점 영업중단</h3>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">국내 신종 코로나바이러스 감염증(우한 폐렴) 12번째 확진자가 CGV 부천역점을 다녀간 것으로 확인됐다.
+                                                            <h3 class="mb-1 font-weight-normal text-danger">광주도 뚫렸다…태국 다녀온 40대女 16번째 확진</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">신종 코로나 바이러스 16번째 확진자가 발생했습니다. 이번에는 광주 광역시까지 뚫렸습니다. 
                                                             </h5>
-                                                            <span class="text-muted font-13">7시간 전 </span>
+                                                            <span class="text-muted font-13">2020.02.04 오후 9:03 </span>
                                                             <span class="text-muted font-13" style="float:right;">조선일보</span>
                                                         </td>
                                                     </tr>
-                                                    <tr onclick="window.open('https://www.edaily.co.kr/news/read?newsId=02128726625666584&mediaCodeNo=257&OutLnkChk=Y')">
+                                                    <tr onclick="window.open('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=055&aid=0000790196')">
                                                         <td>
-                                                            <h3 class="mb-1 font-weight-normal">정부, '신종 코로나' 방역 초강수…입국제한·접촉자 격리(종합)</h3>
-                                                            <h5 class="font-14 mb-1 font-weight-normal">‘신종 코로나바이러스 감염증’ 환자가 국내에서만 15명을 넘어서며 보건당국이 과학적·의학적 수준을 뛰어넘는 강력한 방역대책을 펼치기로 했다. 바이러스 발원지인 중국 후베이성 우한에서 들어온 입국자뿐만 아니라...
+                                                            <h3 class="mb-1 font-weight-normal text-danger">16번째 확진자, 태국 여행 다녀온 40대 한국 여성</h3>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">태국 여행을 다녀온 뒤 신종 코로나 바이러스에 감염된 환자가 국내에서 확인됐습니다.
                                                             </h5>
-                                                            <span class="text-muted font-13">5시간 전 </span>
-                                                            <span class="text-muted font-13" style="float:right;">이데일리</span>
+                                                            <span class="text-muted font-13">2020.02.04 오전 11:18</span>
+                                                            <span class="text-muted font-13" style="float:right;">SBS</span>
                                                         </td>
                                                     </tr>
                                                     <tr onclick="window.open('https://news.sbs.co.kr/news/endPage.do?news_id=N1005629817&plink=ORI&cooper=NAVER')">
@@ -802,6 +819,14 @@
                     pos :new naver.maps.LatLng(37.392964,127.194094),
                     title: "환자#15/한국(남,43)/국군수도병원",
                     content:"(1월 20일) 우한시에서 입국하였으며, 당시 4번째 환자와 같은 비행기를 탑승하여  관리중이던 대상자<br>(2월 1일)부터 호흡기 증상을 호소해 실시한 검사 결과 확진되었다.",
+                },
+                {
+                    pos :new naver.maps.LatLng(35.141945, 126.921635),
+                    title: "환자#16/한국(여,42)/전남대병원",
+                    content:`(1월 19일) 태국 여행 후 1월 19일 입국..
+                    (1월 25일) 저녁부터 오한 등 증상이 있어...,
+(2월 3일) 전남대학교 병원 내원...
+현재 역학조사 및 방역조치가 진행 중...`,
                 }
             );
             /////////////////아래는 최대한 손대지 않아두됨.
