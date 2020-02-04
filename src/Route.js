@@ -8,6 +8,74 @@
 		var count = 0;
 		var name = _g.name;
 		var dateformat = _g.dateformat;
+		var mysql = _g.mysql;
+		var timeago = _g.timeago;
+		//debug
+		/*
+		const db = {
+			host     : 'localhost',
+			user     : 'root',
+			password : 'apmsetup',
+			port     : 3306,
+			database : 'korona',
+		};*/
+
+		//release
+		
+		const db = {
+			host     : 'localhost',
+			user     : 'root',
+			password : 'l323585@',
+			port     : 3306,
+			database : 'korona',
+		};
+		
+
+
+		function dbqry(qry,callback){
+			var conn = mysql.createConnection(db);
+			conn.connect();
+		  	conn.query(qry, function(err, rows, fields) {
+			  if (!err){
+				  if(callback != null){
+					callback(rows);
+				  }
+			  }else{
+				console.log('db qry fail.' + qry);
+			  } 
+	  		});
+	  		conn.end();
+		}
+
+
+		function insertMsg(msg){
+			var name = encodeURIComponent(msg.name);
+			var color = msg.color;
+			var content = encodeURIComponent(msg.msg);
+			const qry = `insert into msg values(null,'${name}','${content}',now(),'${color}')`;
+			dbqry(qry);
+		}
+
+		function getRecentMsg(callback){
+			const qry = `select *,unix_timestamp(write_datetime) as time from msg order by id desc limit 10;`;
+			dbqry(qry,(rows)=>{
+				var msgs = [];
+				for(var i=0;i<rows.length;i++){
+					var msg = {};
+					msg.name =  decodeURIComponent(rows[i].name);
+					msg.msg =  decodeURIComponent(rows[i].msg);
+					msg.color = rows[i].color;
+					var time = rows[i].time*1000;
+					var timeAgoStr = timeago.format(time);
+					msg.time = timeAgoStr;
+					msgs.push(msg);
+				}
+
+				callback(msgs);
+
+			});
+		}
+		
 
 		function socketEventListener(){
 
@@ -17,6 +85,9 @@
 			   console.log(`${count} users connected [${dateformat()}]`);
 			   socket.on('chat message', function(msg){
 			   console.log(dateformat() + ', message = ' + JSON.stringify(msg));
+			   insertMsg(msg);
+			   msg.time = timeago.format(new Date());
+			   msg.time = dateformat(new Date(),'HH:MM:ss');
 			   io.emit('chat message', msg);
 			  });
 
@@ -25,9 +96,11 @@
 			   	var enterMsg = `${name}님 접속하셨습니다.`;
 			   	var msg={
 			   		name : "운영자",
-			   		color : "#ffffff",
-			   		msg : enterMsg
-			   	}
+			   		color : "#000000",
+					msg : enterMsg,
+					time: dateformat(new Date(),'HH:MM:ss')
+					//time : timeago.format(new Date())
+				   }
 			   	io.emit('chat message', msg);
 			   });
 			});
@@ -43,7 +116,9 @@
 
 			app.get('/',function(req,res){
 				loginCheckRouteHook(()=>{
-					res.render('index.html',{color:color,name:name});
+					var msgs = getRecentMsg((msgs)=>{
+						res.render('index.html',{color:color,name:name,msgs:msgs});
+					});
 				});
 			});
 

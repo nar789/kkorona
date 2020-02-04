@@ -40,7 +40,7 @@
         <style>
            #messages{
                overflow: scroll;
-               height: 300px;
+               height:300px;
                list-style-type: none; margin: 0; padding: 0;
            } 
            #messages li { padding: 5px 10px; }
@@ -140,7 +140,7 @@
                                 <div class="page-title-box">
                                     <h4 class="page-title" style="height:50px !important;">업데이트현황</h4>
                                     <a href="javascript:location.reload()">
-                                    <h6>(2월2일 02시00분 업데이트) <i class="mdi mdi-autorenew widget-"
+                                    <h6>(2월5일 새벽 2시 00분 업데이트) <i class="mdi mdi-autorenew widget-"
                                         style= "color:#727cf5;font-size: 25px;"
                                         ></i></h6></a>
                                 </div>
@@ -403,12 +403,23 @@
                             </div> <!-- end col -->
 
                             <div class="col-xl-7">
-                                <div class="card bg-dark">
+                                <div class="card bg-light">
                                     <div class="card-body">
-                                        <h6 class="text-white"><i class="mdi mdi-cellphone-android"></i>증상 발생 시 관할보건소 또는 1399 상담하기!</h6>
-                                        <h4 class="header-title text-white mb-4">코로나 실시간 현상황 가명대화</h4>
-                                        
-                                        <ul id="messages"></ul>
+                                        <h6 class="text-info"><i class="mdi mdi-cellphone-android"></i>증상 발생 시 관할보건소 또는 1399 상담하기!</h6>
+                                        <h4 class="header-title text-dark mb-4">코로나 실시간 현상황 가명대화</h4>
+
+                                        <ul id="messages">
+                                            <% if(msgs!=null){ %>
+                                                <% for(var i=msgs.length-1;i>=0;i--){ %>
+                                                    <li style="color:<%=msgs[i].color%>">
+                                                        <b style="color:gray;font-size: 9px;">
+                                                            <%=msgs[i].time%>
+                                                        </b>
+                                                        ▶<%=msgs[i].name%>:<%=msgs[i].msg%>
+                                                    </li>
+                                                <% } %>
+                                            <% } %>
+                                        </ul>
                                         
                                             <div class="input-group">
                                                 <input class="form-control" id="m" autocomplete="off"
@@ -684,7 +695,7 @@
 
         <!--random color and name init-->
         <script>
-            var myColor = "<%=color({luminosity: 'bright'})%>";
+            var myColor = "<%=color({luminosity: 'dark'})%>";
             var myName = "<%=name.generate(false)%>";
         </script>
         <!--end random color and name init-->
@@ -721,13 +732,15 @@
                     return false;
                 });
                 socket.on('chat message', function(msg){
+                  var timeTag = `<b style="color:gray;font-size: 9px;">${msg.time}</b>`;
                   if(msg.name === myName){
-                    $('#messages').append($('<li class="mymsg" style=\"color:'+msg.color+'\">').text("[나]"+msg.name+":"+msg.msg));
-                  } else {
-                    $('#messages').append($('<li style=\'color:'+msg.color+'\'>').text("▶"+msg.name+":"+msg.msg));
+                    $('#messages').append($('<li class="mymsg" style=\"color:'+msg.color+'\">').html(timeTag + " [나]"+msg.name+":"+msg.msg));
+                  } else {  
+                    $('#messages').append($('<li style=\'color:'+msg.color+'\'>').html(timeTag + " ▶"+msg.name+":"+msg.msg));
                   }
-                  
-                  $('#messages').scrollTop($('#messages').height());
+                  var cnt = $('#messages > li').length;
+                  cnt = 300 + (cnt * 31);
+                  $('#messages').scrollTop(cnt);
                 });
             });
         </script>

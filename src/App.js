@@ -15,6 +15,7 @@
 			var color;
 			var name;
 			var dateformat;
+			var timeago;
 		}
 
 		function loadNodeModules() {
@@ -37,6 +38,11 @@
 			_g.name = require('korean-name-generator');
 
 			_g.dateformat =  require('dateformat');
+
+			var timeago = require('javascript-time-ago');
+			var ko = require('javascript-time-ago/locale/ko')
+			timeago.addLocale(ko);
+			_g.timeago = new timeago('ko');
 
 		}
 
