@@ -57,7 +57,7 @@
 		}
 
 		function getRecentMsg(callback){
-			const qry = `select *,unix_timestamp(write_datetime) as time from msg order by id desc limit 10;`;
+			const qry = `select *,unix_timestamp(write_datetime) as time from msg order by id desc limit 30;`;
 			dbqry(qry,(rows)=>{
 				var msgs = [];
 				for(var i=0;i<rows.length;i++){
