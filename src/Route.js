@@ -11,24 +11,24 @@
 		var mysql = _g.mysql;
 		var timeago = _g.timeago;
 		//debug
-		
+		/*
 		const db = {
 			host     : 'localhost',
 			user     : 'root',
 			password : 'apmsetup',
 			port     : 3306,
 			database : 'korona',
-		};
+		};*/
 
 		//release
-		/*
+		
 		const db = {
 			host     : 'localhost',
 			user     : 'root',
 			password : 'l323585@',
 			port     : 3306,
 			database : 'korona',
-		};*/
+		};
 		
 
 
