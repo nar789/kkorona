@@ -21,7 +21,7 @@
     "mysql": "^2.18.1",
     "randomcolor": "^0.5.4",
     "session-file-store": "^1.4.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.5.0",
     "time-ago": "^0.2.1"
   }
 }
